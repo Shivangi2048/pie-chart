@@ -1,0 +1,30 @@
+
+<mvc:View controllerName="demo.zpieChart.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:feeds="sap.viz.ui5.controls.common.feeds" xmlns:data="sap.viz.ui5.data">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<viz:VizFrame vizType="pie" height="100%" width="100%">
+							<viz:dataset>
+								<data:FlattenedDataset data="{fruits>/Details}">
+									<data:dimensions>
+										<data:DimensionDefinition name="Name" value="{Details>name}"></data:DimensionDefinition>
+									</data:dimensions>
+									<data:measures>
+										<data:MeasureDefinition name="issue" value="{Details>issue}"></data:MeasureDefinition>
+									</data:measures>
+								</data:FlattenedDataset>
+							</viz:dataset>
+							<viz:feeds>
+								<feeds:FeedItem type="Dimension" values="Name" uid="color"></feeds:FeedItem>
+								<feeds:FeedItem type="Measure" values="issue" uid="size"></feeds:FeedItem>
+							</viz:feeds>
+						</viz:VizFrame>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
